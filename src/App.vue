@@ -2,13 +2,6 @@
   <div id="app">
     <MainHeader />
     <MainContent />
-    
-    <ul>
-      <li v-for="movie in movies" :key="movie.id">
-        {{movie.original_title}}
-
-      </li>
-    </ul>
   </div>
 </template>
 

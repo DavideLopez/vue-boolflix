@@ -2,12 +2,11 @@
     <main>
     <ul>
       <li v-for="movie in movies" :key="movie.id">
-         <span>{{ movie.original_title }}</span>
-         <span>{{ movie.title }}</span>
-         <span>{{ movie.original_language }}</span>
-         <span>{{ movie.vote_average }}</span>
-
-      </li>
+         {{ movie.original_title  }}
+         {{ movie.title  }}
+         {{ movie.original_language  }}
+         {{ movie.vote_average  }}
+      </li> 
     </ul>
 
     </main>
