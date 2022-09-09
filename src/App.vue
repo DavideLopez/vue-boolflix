@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    
+    <ul>
+      <li v-for="movie in movies" :key="movie.id">
+        {{movie.original_title}}
+
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      movies: [],
+      api_key: 'dc0f4bc3c4b83b8f323ddf4bf475be19',
+      query: 'club',
+      BASE_URL: 'https://api.themoviedb.org/3'
+    }
+  },
+  methods: {
+    fetchMovies() {
+      axios.get(`${this.BASE_URL}/search/movie?api_key=${this.api_key}&query=${this.query}`)
+      .then((res) => {
+        console.log(res)
+        this.movies = res.data.results
+      })
+    }
+  },
+  beforeMount() {
+this.fetchMovies()
   }
+  
 }
 </script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  
 }
 </style>
