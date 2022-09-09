@@ -17,12 +17,10 @@ export default {
     MainHeader
   }
   
-  
 }
 </script>
 
 <style lang="scss">
-#app {
-  
-}
+  // @import '../src/style/index.scss' EMPTY
+
 </style>
