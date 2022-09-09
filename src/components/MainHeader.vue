@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="navbar">
         <h1>BOOLFLIX</h1>
         <input type="text" placeholder="cerca">
     </div>
