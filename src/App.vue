@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <MainHeader />
+    <MainContent />
     
     <ul>
       <li v-for="movie in movies" :key="movie.id">
@@ -11,10 +13,16 @@
 </template>
 
 <script>
+import MainContent from './components/MainContent.vue';
+import MainHeader from './components/MainHeader.vue';
 import axios from 'axios'
 
 export default {
   name: 'App',
+  components: {
+    MainContent,
+    MainHeader
+  },
   data() {
     return {
       movies: [],
