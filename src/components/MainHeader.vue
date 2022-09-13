@@ -2,11 +2,9 @@
     <header>
 
         <div class="logos">
-            <h1>BOOLFLIX</h1>
-
+            <a href="#"><h1>BOOLFLIX</h1></a>
         </div>
-      
-
+    
         <!-- BARRA E PULSANTE -->
       <div class="searcher">
         <input v-model="query" type="text" placeholder="Inserisci un Titolo...">
@@ -68,7 +66,7 @@
 <style scoped lang="scss">
 
 header {
-  padding: 1rem 1.5rem;
+  padding: 30px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -79,6 +77,7 @@ header {
 h1 {
   font-weight: bold;
   color: red;
+  font-size: 35px;
 
   &:hover {
     cursor: pointer;
@@ -103,6 +102,7 @@ button {
   color: white;
   border: 1px solid red;
   border-radius: 15px;
+  font-weight: bold;
 
   &:hover {
     cursor: pointer;

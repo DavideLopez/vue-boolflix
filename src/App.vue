@@ -1,11 +1,14 @@
 <template>
   <div id="app">
+
     <MainHeader @onSearchMovies="getMovies" @onSearchSeries="getSeries" />
     <MainContent :movies="mapped_movies" :series="mapped_series" />
+    
   </div>
 </template>
 
 <script>
+
 import MainHeader from './components/MainHeader.vue';
 import MainContent from './components/MainContent.vue';
 export default {
