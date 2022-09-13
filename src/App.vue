@@ -1,25 +1,33 @@
 <template>
   <div id="app">
-    <MainHeader />
-    <MainContent />
-    <CardMovie />
+           {{search}}
+    <MainHeader @search="onSearch" />
+    <MainContent :searched="search" />
   </div>
 </template>
 
 <script>
-import MainContent from './components/MainContent.vue';
 import MainHeader from './components/MainHeader.vue';
-import CardMovie from './components/CardMovie.vue';
+import MainContent from './components/MainContent.vue';
+// import CardMovie from './components/CardMovie.vue';
 
 
-export default {  
+export default {
   name: 'App',
   components: {
-    MainContent,
     MainHeader,
-    CardMovie
-}
-  
+    MainContent
+  },
+  data() {
+    return {
+      search: ''
+    }
+  },
+  methods: {
+    onSearch(data) {
+      this.search = data;
+    }
+  }
 }
 </script>
 
@@ -27,3 +35,4 @@ export default {
   // @import '../src/style/index.scss' EMPTY
 
 </style>
+
