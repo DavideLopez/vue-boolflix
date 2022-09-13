@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-           {{search}}
-    <MainHeader @search="onSearch" />
-    <MainContent :searched="search" />
+    <MainHeader @onSearchMovies="getMovies" @onSearchSeries="getSeries" />
+    <MainContent :movies="movies" :series="series" />
   </div>
 </template>
 
 <script>
 import MainHeader from './components/MainHeader.vue';
 import MainContent from './components/MainContent.vue';
-// import CardMovie from './components/CardMovie.vue';
-
-
 export default {
   name: 'App',
   components: {
@@ -20,12 +16,16 @@ export default {
   },
   data() {
     return {
-      search: ''
+      movies: [],
+      series: [],
     }
   },
   methods: {
-    onSearch(data) {
-      this.search = data;
+    getMovies(data) {
+      this.movies = data;
+    },
+    getSeries(data) {
+      this.series = data;
     }
   }
 }

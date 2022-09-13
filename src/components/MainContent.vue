@@ -1,6 +1,6 @@
 <template>
   <main>
-    {{query}}
+    <h2>Movies: {{movies.length}}</h2>
     <ul>
       <li v-for="movie in movies" :key="movie.id">
         <p>{{ movie.title }}</p>
@@ -13,50 +13,35 @@
         <p>{{ movie.vote_average }}</p>
       </li>
     </ul>
+    <h2>Series: {{series.length}}</h2>
+    <ul>
+      <li v-for="serie in series" :key="serie.id">
+        <p>{{ serie.name }}</p>
+        <p>{{ serie.original_name }}</p>
+        <p>
+          <img v-if="serie.original_language === 'it'" src="../assets/it-flag.png" height="20" alt="">
+          <img v-else-if="serie.original_language === 'en'" src="../assets/en-flag.png" height="20" alt="">
+          <span v-else>{{ serie.original_language }}</span>
+        </p>
+        <p>{{ serie.vote_average }}</p>
+      </li>
+    </ul>
   </main>
 </template>
 
+
+
 <script>
-import axios from 'axios';
 export default {
   name: 'MainContent',
   props: {
-    searched: String
-  },
-  data() {
-    return {
-      BASE_URI: 'https://api.themoviedb.org/3',
-      api_key: 'dc0f4bc3c4b83b8f323ddf4bf475be19',
-      movies: []
-    }
-  },
-  computed: {
-    query() {
-      if (!this.searched) {
-        return 'ritorno'
-      }
-      return this.searched
-    }
-  },
-  methods: {
-    fetchMovies() {
-      axios
-        .get(`${this.BASE_URI}/search/movie?api_key=${this.api_key}&query=${this.query}`)
-        .then(((res) => {
-          this.movies = res.data.results;
-        }));
-    }
-  },
-  created() {
-    this.fetchMovies();
-  },
-  updated() {
-    this.fetchMovies();
+    movies: Array,
+    series: Array
   }
 }
 </script>
     
-    <style scoped lang="scss">
+<style scoped lang="scss">
 
       
-    </style>
+</style>
