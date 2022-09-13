@@ -17,10 +17,14 @@ export default {
   data() {
     return {
       original_movies: [],
-      original_series: []
+      original_series: [],
+      flags: {
+        it: require('./assets/it-flag.png'),
+        en: require('./assets/en-flag.png')
+      }
     }
   },
-  computed: {
+  computed: {   // FILM
     mapped_movies() {
       return this.original_movies.map((movie) => {
         return {
@@ -28,20 +32,22 @@ export default {
           title: movie.title,
           original_title: movie.original_title,
           lang: movie.original_language,
+          flag: this.flags[movie.original_language],
           vote: Math.ceil(movie.vote_average / 2),
-          poster: `https://image.tmdb.org/t/p/w342${movie.poster_path}`
+          poster: this.getPosterPath(movie.poster_path)
         }
       });
     },
-    mapped_series() {
+    mapped_series() {   //SERIE TV
       return this.original_series.map((serie) => {
         return {
           id: serie.id,
           title: serie.name,
           original_title: serie.original_name,
           lang: serie.original_language,
+          flag: this.flags[serie.original_language],
           vote: Math.ceil(serie.vote_average / 2),
-          poster: `https://image.tmdb.org/t/p/w342${serie.poster_path}`
+          poster: this.getPosterPath(serie.poster_path)
         }
       });
     }
@@ -52,13 +58,20 @@ export default {
     },
     getSeries(data) {
       this.original_series = data;
+    },
+    getPosterPath(path) {
+      if (path) {
+        return `https://image.tmdb.org/t/p/w342${path}`
+      }
+      return null
     }
   }
 }
 </script>
 
 <style lang="scss">
-  // @import '../src/style/index.scss' EMPTY
+
+  @import '../src/style/index.scss' 
 
 </style>
 

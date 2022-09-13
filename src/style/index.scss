@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+ul {
+    list-style: none;
+}
+
+  
+img {
+    max-width: 100%;
+}
+
+body {
+    background-color: rgb(25, 25, 25);
+    
+}
+  
+.container {
+    margin: 0 auto;
+    max-width: 1400px;
+
+}
+  
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.col {
+    width: calc(100% / 4);
+    padding: 0 15px;
+    margin-bottom: 30px;
+    
+}
+  
