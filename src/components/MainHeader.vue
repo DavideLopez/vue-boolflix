@@ -1,7 +1,7 @@
 <template>
     <header>
       <input v-model="query" type="text" placeholder="Inserisci un titolo">
-      <button @click="getData">cerca</button>
+      <button @click="getData">Cerca</button>
     </header>
   </template>
   
